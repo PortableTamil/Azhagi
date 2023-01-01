@@ -5,14 +5,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Archive Release
+    - name: கட்டு
       uses: thedoctor0/zip-release@master
       with:
         type: 'zip'
         filename: 'அழகி+.zip'
+        path: ./அழகி+
         exclusions: '*.git* /*node_modules/* .editorconfig'
-    - name: Upload Release
+    - name: வெளியீடு
       uses: ncipollo/release-action@v1
       with:
         artifacts: "அழகி+.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
+        tag_name: ${{ github.ref }}
+        release_name: வெளியீடு ${{ github.ref }}
