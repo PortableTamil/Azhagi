@@ -9,7 +9,7 @@ jobs:
 
     - name: கட்டு அழகி+.Zip
       run: zip -qq -r அழகி+.zip அழகி+
-      working-directory: ./அழகி+
+      working-directory: .
 
     - name: வெளியீடு
       uses: ncipollo/release-action@v1
