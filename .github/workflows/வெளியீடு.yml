@@ -7,19 +7,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
     - name: கட்டு
-      uses: thedoctor0/zip-release@main
+    - uses: montudor/action-zip@v1
       with:
-        type: 'zip'
-        filename: 'அழகி+.zip'
-        exclusions: '*.git* /*node_modules/* .editorconfig'
-    - uses: actions/checkout@v1
-    - name: கட்டு கோப்பு
-      run: rsync -arv --exclude='.git/' --exclude='.github/' --exclude='.gitignore' . ./release
+        args: zip -qq -r அழகி+.zip அழகி+
     - name: கோப்புறைக்கு செல்
       run: |
-        cd release
         ls -la
     - name: பதிப்பு எண்ணை அதிகபடுத்து
       uses: anothrNick/github-tag-action@master
