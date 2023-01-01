@@ -17,5 +17,4 @@ jobs:
       with:
         artifacts: "அழகி+.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
-        tag_name: ${{ github.ref }}
-        release_name: வெளியீடு ${{ github.ref }}
+        tag: வெளியீடு அழகி+
