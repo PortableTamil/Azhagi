@@ -1,7 +1,7 @@
 name: கட்டி பதிவேற்றி வெளியிடு
 on: [push]
 jobs:
-  build:
+  build and release:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -11,9 +11,6 @@ jobs:
         type: 'zip'
         filename: 'அழகி+.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
-  release:
-    runs-on: ubuntu-latest
-    steps:
     - name: பதிவேற்றி வெளியிடு
       uses: ncipollo/release-action@v1
       with:
