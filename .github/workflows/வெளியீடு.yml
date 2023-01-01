@@ -12,5 +12,5 @@ jobs:
       run: zip -r அழகி+.zip . -x ".git/*" ".github/*"
     - name: வெளியீடு
     - uses: actions/upload-artifact@v2
-        with:
-          name: அழகி+.zip
+      with:
+        name: அழகி+.zip
