@@ -20,7 +20,6 @@ jobs:
       with:
         tag_name: azhagi
         delete_release: true  
-        repo:  PortableTamil/Apps 
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -31,4 +30,4 @@ jobs:
         tag: azhagi
         name: வெளியீடு ${{ steps.tag_version.outputs.new_tag }}
         body: மாற்றங்கள் ${{ steps.tag_version.outputs.changelog }}
-        repo:  PortableTamil/Apps 
+
