@@ -28,6 +28,6 @@ jobs:
       with:
         artifacts: "App.zip"
         tag: current
-        name: வெளியீடு ${{ steps.tag_version.outputs.new_tag }}
-        body: மாற்றங்கள் ${{ steps.tag_version.outputs.changelog }}
+        name: புதியவெளியீடு
+        body: புதிய மாற்றங்கள் அனைத்து அடங்கும்
 
