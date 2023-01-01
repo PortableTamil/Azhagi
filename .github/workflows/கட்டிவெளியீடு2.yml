@@ -11,14 +11,14 @@ jobs:
       uses: montudor/action-zip@v1
 
     - name: கட்டு அழகி+.Zip
-      run: zip -qq -r அழகி+.zip அழகி+
+      run: zip -qq -r அழகி+2.zip அழகி+
       working-directory: .
 
     - name: வெளியீடு
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "அழகி+.zip"
+        artifacts: "அழகி+2.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
-        tag: அழகி+
+        tag: அழகி+2
 
 

@@ -11,13 +11,13 @@ jobs:
       uses: thedoctor0/zip-release@master
       with:
         type: 'zip'
-        filename: 'Azhagi+.zip'
+        filename: 'Azhagi+1.zip'
         path: ./அழகி+
         exclusions: '*.git* /*node_modules/* .editorconfig'
 
     - name: வெளியீடு
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "Azhagi+.zip"
+        artifacts: "Azhagi+1.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
-        tag: அழகி+
+        tag: அழகி+1

@@ -11,7 +11,7 @@ jobs:
       uses: montudor/action-zip@v1
 
     - name: கட்டு அழகி+.Zip
-      run: zip -qq -r அழகி+.zip அழகி+
+      run: zip -qq -r அழகி+3.zip அழகி+
       working-directory: .
 
     - name: குறிச்சொல் மாற்று
@@ -23,7 +23,7 @@ jobs:
     - name: வெளியீடு
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "அழகி+.zip"
+        artifacts: "அழகி+3.zip"
         tag: ${{ steps.tag_version.outputs.new_tag }}
         name: வெளியீடு ${{ steps.tag_version.outputs.new_tag }}
         body: மாற்றங்கள் ${{ steps.tag_version.outputs.changelog }}
