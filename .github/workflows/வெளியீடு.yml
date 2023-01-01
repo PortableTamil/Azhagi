@@ -1,14 +1,16 @@
-name: Continuous Integration
-on:
-  push:
+name: கட்டி பதிவேற்றி வெளியிடு
+on: [push]
 jobs:
-  build:
+  build_and_release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: montudor/action-zip@v1
-        with:
-          args: zip -qq -r அழகி+.zip அழகி+
+    - uses: actions/checkout@master
+    - name: கட்டு
+      uses: thedoctor0/zip-release@main
+      with:
+        type: 'zip'
+        filename: 'அழகி+.zip'
+        exclusions: '*.git* /*node_modules/* .editorconfig'
       - uses: actions/upload-artifact@v2
         with:
           name: அழகி+.zip
