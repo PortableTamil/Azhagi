@@ -1,3 +1,27 @@
+name: கட்டிவெளியீடு
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: கட்டு
+      uses: thedoctor0/zip-release@master
+      with:
+        type: 'zip'
+        filename: 'Azhagi+.zip'
+        path: ./அழகி+
+        exclusions: '*.git* /*node_modules/* .editorconfig'
+    - name: வெளியீடு
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "Azhagi+.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        tag: அழகி+
+
+
+
+
 name: கட்டி பதிவேற்றி வெளியிடு
 on: [push]
 jobs:
@@ -17,3 +41,8 @@ jobs:
         artifacts: "அழகி+.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
 
+
+
+- uses: montudor/action-zip@v1
+  with:
+    args: zip -qq -r dir.zip dir

@@ -1,0 +1,21 @@
+name: கட்டிவெளியீடு
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: நிறுவு கட்டு
+      uses: montudor/action-zip@v1
+
+    - name: கட்டு அழகி+.Zip
+      run: zip -qq -r அழகி+.zip அழகி+
+      working-directory: ./அழகி+
+
+    - name: வெளியீடு
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "Azhagi+.zip"
+        token: ${{ secrets.GITHUB_TOKEN }}
+        tag: அழகி+
+
+
