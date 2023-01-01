@@ -1,12 +1,15 @@
-name: கட்டிவெளியீடு
+name: Continuous Integration
 on:
   push:
-    branches:
-      - main
 jobs:
-  build:
+  composer-install:
     runs-on: ubuntu-latest
     steps:
-    - uses: montudor/action-zip@v1
-      with:
-        args: zip -qq -r அழகி+.zip அழகி+
+      - uses: actions/checkout@v1
+      - run: composer install --ansi --no-progress --no-interaction --prefer-dist
+      - uses: montudor/action-zip@v1
+        with:
+          args: zip -qq -r அழகி+.zip அழகி+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: அழகி+.zip
