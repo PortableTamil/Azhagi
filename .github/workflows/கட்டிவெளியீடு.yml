@@ -14,18 +14,16 @@ jobs:
       run: zip -qq -r அழகி+.zip அழகி+
       working-directory: .
 
+    - name: குறிச்சொல் மாற்று
+      id: tag_version
+      uses: mathieudutour/github-tag-action@v6.1
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+
     - name: வெளியீடு
-      id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      uses: ncipollo/release-action@v1
       with:
         artifacts: "அழகி+.zip"
-        tag_name: அழகி+${{ $BUILD_NUMBER }}
-        release_name: வெளியீடு ${{ $BUILD_NUMBER }}
-        body: |
-          மாற்றங்கள்
-          - முதல்
-          - இரண்டாவது
-        draft: false
-        prerelease: false
+        tag: ${{ steps.tag_version.outputs.new_tag }}
+        name: வெளியீடு ${{ steps.tag_version.outputs.new_tag }}
+        body: மாற்றங்கள் ${{ steps.tag_version.outputs.changelog }}
