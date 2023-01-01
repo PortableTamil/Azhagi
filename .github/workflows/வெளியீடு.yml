@@ -15,6 +15,6 @@ jobs:
     - name: வெளியீடு
       uses: ncipollo/release-action@v1
       with:
-        artifacts: "அழகி+.zip"
+        artifacts: "Azhagi+.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
         tag: அழகி+
