@@ -1,17 +1,17 @@
 name: கட்டி பதிவேற்றி வெளியிடு
 on: [push]
 jobs:
-  கட்டு:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: கட்டி வெளியிடு
+    - name: கட்டு
       uses: thedoctor0/zip-release@main
       with:
         type: 'zip'
         filename: 'அழகி+.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
-  வெளியீடு:
+  release:
     runs-on: ubuntu-latest
     steps:
     - name: பதிவேற்றி வெளியிடு
