@@ -1,0 +1,13 @@
+name: கட்டு
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: கட்டி வெளியிடு
+      uses: thedoctor0/zip-release@main
+      with:
+        type: 'zip'
+        filename: 'அழகி+.zip'
+        exclusions: '*.git* /*node_modules/* .editorconfig'
