@@ -11,10 +11,9 @@ jobs:
         type: 'zip'
         filename: 'அழகி+.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
-
   வெளியீடு:
-    steps:
     runs-on: ubuntu-latest
+    steps:
     - name: பதிவேற்றி வெளியிடு
       uses: ncipollo/release-action@v1
       with:
