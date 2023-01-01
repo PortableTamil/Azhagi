@@ -1,0 +1,34 @@
+name: கட்டிவெளியீடு
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: எடு புதியது
+      uses: actions/checkout@master
+
+    - name: நிறுவு கட்டு
+      uses: montudor/action-zip@v1
+
+    - name: கட்டு
+      run: zip -qq -r App.zip அழகி+
+      working-directory: .
+
+
+    - name: நீக்கு
+      uses: dev-drprasad/delete-tag-and-release@v0.2.0
+      with:
+        tag_name: அழகி+
+        delete_release: true  
+        repo:  PortableTamil/Apps 
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: வெளியீடு
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "App.zip"
+        tag: அழகி+
+        name: வெளியீடு ${{ steps.tag_version.outputs.new_tag }}
+        body: மாற்றங்கள் ${{ steps.tag_version.outputs.changelog }}
+        repo:  PortableTamil/Apps 
