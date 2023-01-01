@@ -4,11 +4,18 @@ on:
     branches:
       - main
 jobs:
-  கட்டி_வெளியீடு:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: கட்டு
-      run: zip -r அழகி+.zip . -x ".git/*" ".github/*"
-    - name: வெளியீடு
-      run: echo "வெளியீடு"
+    - name: கட்டு கோப்பு
+      run: rsync -arv --exclude='.git/' --exclude='.github/' --exclude='.gitignore' . ./release
+    - name: கோப்புறைக்கு செல்
+      run: |
+        cd release
+        ls -la
+    - name: பதிப்பு எண்ணை அதிகபடுத்து
+      uses: anothrNick/github-tag-action@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        REPO_OWNER: keithweaver
