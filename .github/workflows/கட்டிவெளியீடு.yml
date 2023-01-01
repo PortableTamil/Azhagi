@@ -21,8 +21,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
         artifacts: "அழகி+.zip"
-        tag_name: அழகி+${{ steps.version.outputs.version }}
-        release_name: வெளியீடு ${{ steps.version.outputs.version }}
+        tag_name: அழகி+${{ $BUILD_NUMBER }}
+        release_name: வெளியீடு ${{ $BUILD_NUMBER }}
         body: |
           மாற்றங்கள்
           - முதல்
