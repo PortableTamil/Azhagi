@@ -15,14 +15,14 @@ jobs:
       working-directory: .
 
     - name: வெளியீடு
-      id: create_release
+      id: வெளியீடு
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
       with:
         artifacts: "அழகி+.zip"
-        tag_name: அழகி+${{ github.ref }}
-        release_name: Release ${{ github.ref }}
+        tag_name: அழகி+${{ steps.version.outputs.version }}
+        release_name: வெளியீடு ${{ steps.version.outputs.version }}
         body: |
           மாற்றங்கள்
           - முதல்
