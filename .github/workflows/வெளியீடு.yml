@@ -2,7 +2,7 @@ name: கட்டிவெளியீடு
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
