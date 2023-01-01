@@ -7,6 +7,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@master
+    - name: கட்டு
+      uses: thedoctor0/zip-release@main
+      with:
+        type: 'zip'
+        filename: 'அழகி+.zip'
+        exclusions: '*.git* /*node_modules/* .editorconfig'
     - uses: actions/checkout@v1
     - name: கட்டு கோப்பு
       run: rsync -arv --exclude='.git/' --exclude='.github/' --exclude='.gitignore' . ./release
