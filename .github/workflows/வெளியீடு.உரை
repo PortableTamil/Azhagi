@@ -1,5 +1,0 @@
-- name: பதிவேற்றி வெளியிடு
-  uses: ncipollo/release-action@v1
-  with:
-    artifacts: "அழகி+.zip"
-    token: ${{ secrets.GITHUB_TOKEN }}

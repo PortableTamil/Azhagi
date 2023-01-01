@@ -1,0 +1,14 @@
+name: கட்டிவெளியீடு
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: கட்டு
+      run: zip -r அழகி+.zip . -x ".git/*" ".github/*"
+    - name: வெளியீடு
+      run: echo "வெளியீடு"
