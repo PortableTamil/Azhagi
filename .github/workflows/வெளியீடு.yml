@@ -17,4 +17,4 @@ jobs:
       with:
         artifacts: "அழகி+.zip"
         token: ${{ secrets.GITHUB_TOKEN }}
-        tag: release
+        tag: அழகி+
