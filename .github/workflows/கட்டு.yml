@@ -1,7 +1,7 @@
-name: கட்டு
+name: கட்டி பதிவேற்றி வெளியிடு
 on: [push]
 jobs:
-  build:
+  கட்டு:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
@@ -12,8 +12,11 @@ jobs:
         filename: 'அழகி+.zip'
         exclusions: '*.git* /*node_modules/* .editorconfig'
 
-- name: பதிவேற்றி வெளியிடு
-  uses: ncipollo/release-action@v1
-  with:
-    artifacts: "அழகி+.zip"
-    token: ${{ secrets.GITHUB_TOKEN }}
+  வெளியீடு:
+    steps:
+    - name: பதிவேற்றி வெளியிடு
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: 'அழகி+.zip'
+        token: ${{ secrets.GITHUB_TOKEN }}
+
