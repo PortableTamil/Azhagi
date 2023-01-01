@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: எடு புதியது
-    - uses: actions/checkout@master
+      uses: actions/checkout@master
 
     - name: நிறுவு கட்டு
       uses: montudor/action-zip@v1
