@@ -1,16 +1,16 @@
-name: கட்டி பதிவேற்றி வெளியிடு
-on: [push]
+name: கட்டிவெளியீடு
+on:
+  push:
+    branches:
+      - main
 jobs:
-  build_and_release:
+  build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v1
     - name: கட்டு
-      uses: thedoctor0/zip-release@main
-      with:
-        type: 'zip'
-        filename: 'அழகி+.zip'
-        exclusions: '*.git* /*node_modules/* .editorconfig'
-      - uses: actions/upload-artifact@v2
+      run: zip -r அழகி+.zip . -x ".git/*" ".github/*"
+    - name: வெளியீடு
+    - uses: actions/upload-artifact@v2
         with:
           name: அழகி+.zip
